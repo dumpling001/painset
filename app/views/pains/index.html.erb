@@ -4,25 +4,25 @@
 
       <div class="col-md-12">
         <div class="pain">
-          <%= link_to("New pain", new_pain_path, class: "btn btn-primary pull-right") %>
+          <%= link_to("新的错误", new_pain_path, class: "btn btn-primary pull-right") %>
         </div>
         <table class="table table-hover">
           <thead>
             <tr>
               <td>#</td>
-              <td>Title</td>
-              <td>Description</td>
+              <td>错题名</td>
+              <td>错误原因</td>
             </tr>
           </thead>
           <tbody>
             <% @pains.each do |pain| %>
               <tr>
                 <td>#</td>
-                <td><%= link_to(pain.title, pain_path(pain)) %></td>
-                <td><%= pain.description %></td>
+                <td><%= link_to(pain.pain_name, pain_path(pain)) %></td>
+                <td><%= pain.pain_cause %></td>
                 <td>
-                    <%= link_to("Edit", edit_pain_path(pain), class: "btn btn-sm btn-default")%>
-                    <%= link_to("Delete", pain_path(pain),    class: "btn btn-sm btn-default",
+                    <%= link_to("编辑", edit_pain_path(pain), class: "btn btn-sm btn-default")%>
+                    <%= link_to("删除", pain_path(pain),    class: "btn btn-sm btn-default",
                                 method: :delete, data: { confirm: "Are you sure?" } )%>
                 </td>
               </tr>

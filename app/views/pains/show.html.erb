@@ -1,0 +1,15 @@
+<section class="about-the-pain">
+        <div class="flex-fix">
+          <div class="container">
+
+<div class="col-md-12">
+  <div class="pain">
+    <%= link_to("我要修改", edit_pain_path(@pain), class: "btn btn-primary pull-right")%>
+  </div>
+  <h2><%= @pain.pain_name %></h2>
+  <p><%= @pain.pain_cause %></p>
+</div>
+
+</div>
+        </div>
+      </section>
