@@ -785,6 +785,10 @@ section.pullquote-hero {
   overflow: hidden
 }
 
+section.pullquote-hero a {
+  text-decoration: none;
+}
+
 @media screen and (max-width: 600px) {
   section.pullquote-hero {
     -ms-flex-align: center;
