@@ -1,0 +1,20 @@
+<%= simple_form_for @pain do |f| %>
+
+<% if @pain.errors.any? %>
+<ul>
+  <% @pain.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+</ul>
+<% end %>
+
+
+        <div class="form-pain">
+          <%= f.input :pain_name,  :label => "错误名称", input_html: { class: "form-control"} %>
+          <%= f.input :pain_cause, :label => "错误原因", input_html: { class: "form-control"} %>
+          <%= f.input :regret_level, :label => "遗憾等级",  input_html: { class: "form-control"} %>
+          <%= f.input :next_do, :label => "下次怎么做", input_html: { class: "form-control"} %>
+        </div>
+
+<%= f.submit "Submit", :disable_with => 'Submiting...' %>
+<% end %>

@@ -7,39 +7,7 @@
   <div class="copy">
     <div class="col-md-12">
 
-        <%= form_for @pain do |f| %>
-
-        <% if @pain.errors.any? %>
-        <ul>
-          <% @pain.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-        </ul>
-        <% end %>
-
-        <div class="form-pain col-lg-12">
-    什么错？
-          <%= f.text_field :pain_name  %>
-        </div>
-        <div class="form-pain col-lg-12">
-    错的原因？
-          <%= f.text_field :pain_cause  %>
-        </div>
-
-        <div class="form-pain col-lg-12">
-    后悔等级？
-         <%= f.text_field :regret_level  %>
-        </div>
-        <div class="form-pain col-lg-12">
-    下次怎么做？
-          <%= f.text_field :next_do  %>
-        </div>
-
-        <%= f.submit "Submit", :disable_with => 'Submitting...' %>
-        <% end %>
-
-
-
+    <%= render "form" %>
 
   </div>
   </div>
