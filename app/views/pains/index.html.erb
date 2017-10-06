@@ -12,6 +12,7 @@
               <td>#</td>
               <td>错题名</td>
               <td>错误原因</td>
+              <td>作者</td>
             </tr>
           </thead>
           <tbody>
@@ -20,10 +21,13 @@
                 <td>#</td>
                 <td><%= link_to(pain.pain_name, pain_path(pain)) %></td>
                 <td><%= pain.pain_cause %></td>
+                <td><%= pain.user.email %></td>
                 <td>
+                  <% if current_user && current_user == pain.user %>
                     <%= link_to("编辑", edit_pain_path(pain), class: "btn btn-sm btn-default")%>
                     <%= link_to("删除", pain_path(pain),    class: "btn btn-sm btn-default",
                                 method: :delete, data: { confirm: "Are you sure?" } )%>
+                  <% end %>
                 </td>
               </tr>
             <% end %>
