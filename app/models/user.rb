@@ -7,4 +7,18 @@ class User < ApplicationRecord
   has_many :comments
   has_many :pain_marks
   has_many :participated_pains, :through => :pain_marks, :source => :pain
+
+  def is_member_of?(pain)
+    participated_pains.include?(pain)
+  end
+
+  def mark!(pain)
+    participated_pains << pain
+  end
+
+  def discard!(pain)
+    participated_pains.delete(pain)
+  end
+
+
 end
