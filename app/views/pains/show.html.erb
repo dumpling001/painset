@@ -4,12 +4,20 @@
 
 <div class="col-md-12">
   <div class="pain">
+    <%= link_to("我有话说", new_group_post_path(@group), class: "btn btn-default pull-right")%>
     <% if current_user && current_user == @pain.user %>
       <%= link_to("我要修改", edit_pain_path(@pain), class: "btn btn-primary pull-right")%>
     <% end %>
   </div>
-  <h2><%= @pain.pain_name %></h2>
+  <h3>错题名称：</h3>
+  <p><%= @pain.pain_name %></p>
+  <h3>错题原因：</h3>
   <p><%= @pain.pain_cause %></p>
+  <h3>遗憾等级：</h3>
+  <p><%= @pain.regret_level %></p>
+  <h3>下次怎么做：</h3>
+  <p><%= @pain.next_do %></p>
+
 </div>
 
 </div>
