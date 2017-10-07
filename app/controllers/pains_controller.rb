@@ -24,6 +24,7 @@ class PainsController < ApplicationController
 
     def show
       @pain = Pain.find(params[:id])
+      @comments = @pain.comments.recent.paginate(:page => params[:page], :per_page => 3)
     end
 
     def edit

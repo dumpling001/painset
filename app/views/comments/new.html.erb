@@ -1,0 +1,40 @@
+<section class="about-the-pain">
+        <div class="flex-fix">
+          <div class="container">
+
+<div class="col-md-12">
+  <div class="pain">
+    <% if current_user && current_user == @pain.user %>
+      <%= link_to("修改", edit_pain_path(@pain), class: "btn btn-primary pull-right")%>
+    <% end %>
+  </div>
+  <h3>错题名称：</h3>
+  <p><%= @pain.pain_name %></p>
+  <h3>错题原因：</h3>
+  <p><%= @pain.pain_cause %></p>
+  <h3>遗憾等级：</h3>
+  <p><%= @pain.regret_level %></p>
+  <h3>下次怎么做：</h3>
+  <p><%= @pain.next_do %></p>
+
+</div>
+
+</div>
+        </div>
+      </section>
+<!-- 以上引用pain#show -->
+
+
+
+<h2 class="text-center">说说看～</h2>
+
+<div class="col-md-4 col-md-offset-4">
+  <%= simple_form_for [@pain,@comment] do |f| %>
+    <div class="form-pain">
+      <%= f.input :content, :label => "我想说……", input_html: { class: "form-control"} %>
+    </div>
+    <div class="form-actions">
+      <%= f.submit "好了～", disable_with: "Submiting...", class: "btn btn-primary"%>
+    </div>
+  <% end %>
+</div>
