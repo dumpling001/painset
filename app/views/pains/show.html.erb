@@ -5,12 +5,6 @@
       <div class="col-md-12">
         <div class="pain">
 
-          <span class="pull-left">
-            <% if current_user && current_user.is_member_of?(@pain) %>
-              <label class="label label-success"> 惺惺相惜 </label>
-            <% end %>
-          </span>
-          <br>
           <%= link_to("我要说话", new_pain_comment_path(@pain), class: "btn btn-default pull-right")%>
           <% if current_user && current_user == @pain.user %>
             <%= link_to("修改", edit_pain_path(@pain), class: "btn btn-primary pull-right")%>
@@ -24,6 +18,18 @@
         <p><%= @pain.regret_level %></p>
         <h3>下次怎么做：</h3>
         <p><%= @pain.next_do %></p>
+
+        <span class="pull-left">
+          <% if current_user && current_user.is_member_of?(@pain) %>
+            <label class="label label-success"> 已收藏 </label>
+            <%= link_to("取消标记", discard_pain_path(@pain), method: :post, class: "btn btn-default") %>
+          <% else %>
+            <label class="label label-warning"> 未收藏 </label>
+            <%= link_to("我要标记", mark_pain_path(@pain), method: :post, class: "btn btn-default") %>
+          <% end %>
+        </span>
+        <br>
+
         <br>
         </br>
         <div class="heading"><h3>别人怎么看？</h3></div>

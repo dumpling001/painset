@@ -1,0 +1,26 @@
+<div class="col-md-12">
+
+  <h2 class="text-center"> 我有共鸣的错题 </h2>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th> 错题名称 </th>
+        <th> 错题原因 </th>
+        <th> 评论数量 </th>
+        <th> 最后更新 </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @pains.each do |pain| %>
+        <tr>
+          <td> <%= link_to(pain.pain_name, pain_path(pain)) %> </td>
+          <td> <%= pain.pain_cause %> </td>
+          <td> <%= pain.comments.count %> </td>
+          <td> <%= pain.updated_at %> </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

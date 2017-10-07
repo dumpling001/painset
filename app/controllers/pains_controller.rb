@@ -1,5 +1,5 @@
 class PainsController < ApplicationController
-  before_action :authenticate_user! , only: [:new, :create, :edit, :update, :destroy]
+  before_action :authenticate_user! , only: [:new, :create, :edit, :update, :destroy, :mark, :discard]
   before_action :find_pain_and_check_permission, only: [:edit, :update, :destroy]
 
   def index
@@ -15,6 +15,7 @@ class PainsController < ApplicationController
     @pain.user = current_user
 
     if @pain.save
+      current_user.mark!(@pain)
       redirect_to pains_path
     else
       render :new
@@ -44,6 +45,31 @@ class PainsController < ApplicationController
      @pain.destroy
     #  flash[:alert] = "已经删除了！"
      redirect_to pains_path, alert: "已经删除了！"
+   end
+
+   def mark
+     @pain = Pain.find(params[:id])
+
+     if !current_user.is_member_of?(@pain)
+       current_user.mark!(@pain)
+       flash[:notice] = "标记成功！"
+     else
+       flash[:warning] = "您之前已经标记过了！"
+     end
+     redirect_to pain_path(@pain)
+   end
+
+   def discard
+     @pain = Pain.find(params[:id])
+
+     if current_user.is_member_of?(@pain)
+       current_user.discard!(@pain)
+       flash[:alert] = "已经不再犯同样的错误啦，取消标记！"
+     else
+       flash[:warning] = "你本来就没有标记哦！"
+      end
+
+      redirect_to pain_path(@pain)
    end
 
   private

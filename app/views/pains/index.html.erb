@@ -16,21 +16,7 @@
             </tr>
           </thead>
           <tbody>
-            <% @pains.each do |pain| %>
-              <tr>
-                <td><%= link_to(pain.pain_name, pain_path(pain)) %></td>
-                <td><%= pain.pain_cause %></td>
-                <td><%= pain.regret_level %></td>
-                <td><%= pain.next_do %></td>
-                <td>
-                  <% if current_user && current_user == pain.user %>
-                    <%= link_to("编辑", edit_pain_path(pain), class: "btn btn-sm btn-default")%>
-                    <%= link_to("删除", pain_path(pain),    class: "btn btn-sm btn-default",
-                                method: :delete, data: { confirm: "你真的要删除吗？" } )%>
-                  <% end %>
-                </td>
-              </tr>
-            <% end %>
+            <%= render :partial => "pain_item", :collection => @pains, :as => :pain %>
           </tbody>
         </table>
       </div>

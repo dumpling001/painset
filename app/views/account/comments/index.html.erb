@@ -1,0 +1,27 @@
+<div class="col-md-12">
+
+  <h2 class="text-center"> 我发表过的文章 </h2>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th> 内容 </th>
+        <th> 错题名称 </th>
+        <th> 最后更新 </th>
+        <th colspan="2"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @comments.each do |comment| %>
+        <tr>
+          <td> <%= comment.content %> </td>
+          <td> <%= comment.pain.pain_name %> </td>
+          <td> <%= comment.updated_at %> </td>
+          <!-- <td> <%= link_to('编辑', edit_pain_comment_path(comment.pain, comment), class: "btn btn-default btn-xs") %></td> -->
+          <!-- <td> <%= link_to('删除', pain_comment_path(comment.pain, comment), method: :delete, data: { confirm: "你真的要删除吗?" }, class: "btn btn-default btn-xs") %></td> -->
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
