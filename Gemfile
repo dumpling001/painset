@@ -39,6 +39,8 @@ gem 'simple_form'
 gem 'devise'
 gem 'will_paginate'
 gem 'mysql2'
+gem 'redcarpet'
+gem 'pygments.rb'
 
 group :development, :test do
   gem 'capistrano-rails'

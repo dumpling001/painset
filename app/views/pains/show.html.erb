@@ -13,11 +13,11 @@
         <h3>错题名称：</h3>
         <p><%= @pain.pain_name %></p>
         <h3>错题原因：</h3>
-        <p><%= @pain.pain_cause %></p>
+        <p><%= markdown @pain.pain_cause %></p>
         <h3>遗憾等级：</h3>
         <p><%= @pain.regret_level %></p>
         <h3>正解：</h3>
-        <p><%= @pain.next_do %></p>
+        <p><%= markdown @pain.next_do %></p>
 
         <span class="pull-left">
           <% if current_user && current_user.is_member_of?(@pain) %>
