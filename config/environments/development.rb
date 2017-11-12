@@ -51,4 +51,38 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+  # ActionMailer config
+  # change to localhost:3000 during development/test
+  config.action_mailer.default_url_options = { :host => 'www.painset.com'}
+  config.action_mailer.delivery_method = :smtp
+  # you may change to false to disable email to be sent during development/test
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.default :charset => "uft-8"
+
+  # http://1c7.me/ruby-on-rails-5-devise-password-reset-email-using-soho-sendcloud/
+  # http://ju.outofmemory.cn/entry/155507
+  # https://ihower.tw/rails/actionmailer-cn.html
+  # config.action_mailer.smtp_settings
+
+  config.action_mailer.smtp_settings = {
+    :address              => "smtpcloud.sohu.com",
+    :port                 => 25,
+    :user_name            => ENV["SEND_CLOUD_USER_NAME"],
+    :password             => ENV["SEND_CLOUD_USER_KEY"],
+    :authentication       => "login",
+    :enable_starttls_auto => true
+  }
+
+  # ActionMailer::Base.smtp_settings = {
+  #   address: "smtpcloud.sohu.com",
+  #   port: 25,
+  #   domain: "localhost:3000",
+  #   authentication: "login",
+  #   enable_starttls_auto: true,
+  #   user_name: ENV["SEND_CLOUD_USER_NAME"],
+  #   password: ENV["SEND_CLOUD_USER_KEY"]
+  #   }
+
 end

@@ -83,4 +83,29 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # ActionMailer config
+  # change to localhost:3000 during development/test
+  config.action_mailer.default_url_options = { :host => 'www.painset.com'}
+  config.action_mailer.delivery_method = :smtp
+  # you may change to false to disable email to be sent during development/test
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.default :charset => "uft-8"
+
+  # http://1c7.me/ruby-on-rails-5-devise-password-reset-email-using-soho-sendcloud/
+  # http://ju.outofmemory.cn/entry/155507
+  # https://ihower.tw/rails/actionmailer-cn.html
+  # config.action_mailer.smtp_settings
+
+  ActionMailer::Base.smtp_settings = {
+    address: "smtpcloud.sohu.com",
+    port: 25,
+    domain: "painset.com",
+    authentication: "login",
+    enable_starttls_auto: true,
+    user_name: ENV["SEND_CLOUD_USER_NAME"],
+    password: ENV["SEND_CLOUD_USER_KEY"]
+    }
+
 end
