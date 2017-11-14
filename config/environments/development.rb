@@ -66,23 +66,14 @@ Rails.application.configure do
   # https://ihower.tw/rails/actionmailer-cn.html
   # config.action_mailer.smtp_settings
 
-  config.action_mailer.smtp_settings = {
-    :address              => "smtpcloud.sohu.com",
-    :port                 => 25,
-    :user_name            => ENV["SEND_CLOUD_USER_NAME"],
-    :password             => ENV["SEND_CLOUD_USER_KEY"],
-    :authentication       => "login",
-    :enable_starttls_auto => true
-  }
-
-  # ActionMailer::Base.smtp_settings = {
-  #   address: "smtpcloud.sohu.com",
-  #   port: 25,
-  #   domain: "localhost:3000",
-  #   authentication: "login",
-  #   enable_starttls_auto: true,
-  #   user_name: ENV["SEND_CLOUD_USER_NAME"],
-  #   password: ENV["SEND_CLOUD_USER_KEY"]
-  #   }
+  ActionMailer::Base.smtp_settings = {
+    address: "smtpcloud.sohu.com",
+    port: 25,
+    domain: "localhost:3000",
+    authentication: "login",
+    enable_starttls_auto: true,
+    user_name: ENV["SEND_CLOUD_USER_NAME"],
+    password: ENV["SEND_CLOUD_USER_KEY"]
+    }
 
 end

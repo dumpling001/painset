@@ -41,6 +41,7 @@ gem 'will_paginate'
 gem 'mysql2'
 gem 'redcarpet'
 gem 'pygments.rb'
+gem 'figaro'
 
 group :development, :test do
   gem 'capistrano-rails'
