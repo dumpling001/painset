@@ -88,6 +88,7 @@ Rails.application.configure do
   # change to localhost:3000 during development/test
   config.action_mailer.default_url_options = { :host => 'www.painset.com'}
   config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = config_for(:email).symbolize_keys
   # you may change to false to disable email to be sent during development/test
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = false
