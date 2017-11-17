@@ -54,7 +54,7 @@ Rails.application.configure do
 
   # ActionMailer config
   # change to localhost:3000 during development/test
-  config.action_mailer.default_url_options = { :host => 'www.painset.com'}
+  config.action_mailer.default_url_options = { :host => 'localhost:3000'}
   config.action_mailer.delivery_method = :smtp
   # you may change to false to disable email to be sent during development/test
   config.action_mailer.perform_deliveries = true
@@ -69,7 +69,7 @@ Rails.application.configure do
   ActionMailer::Base.smtp_settings = {
     address: "smtpcloud.sohu.com",
     port: 25,
-    domain: "localhost:3000",
+    domain: "painset.com",
     authentication: "login",
     enable_starttls_auto: true,
     user_name: ENV["SEND_CLOUD_USER_NAME"],
