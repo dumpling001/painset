@@ -7,13 +7,13 @@ class TestController < ApplicationController
   #   return
   # end
 
-  def version
-    render json: {
-      mailer_sender: ENV["DEVISE_MAILER_SENDER"],
-      secret_key: ENV["DEVISE_SECRET_KEY"],
-      user_name: ENV["SEND_CLOUD_USER_NAME"],
-      password: ENV["SEND_CLOUD_USER_KEY"]
-    }
-    return
-  end
+  # def version
+  #   render json: {
+  #     mailer_sender: ENV["DEVISE_MAILER_SENDER"],
+  #     secret_key: ENV["DEVISE_SECRET_KEY"],
+  #     user_name: ENV["SEND_CLOUD_USER_NAME"],
+  #     password: ENV["SEND_CLOUD_USER_KEY"]
+  #   }
+  #   return
+  # end
 end
