@@ -12,6 +12,6 @@ class TestController < ApplicationController
   #     user_name: ENV["SEND_CLOUD_USER_NAME"],
   #     password: ENV["SEND_CLOUD_USER_KEY"]
   #   }
-    return
-  end
+  #   return
+  # end
 end
