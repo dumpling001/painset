@@ -16,5 +16,6 @@ Rails.application.routes.draw do
 
   root 'pains#index'
 
-#  get '/test/reset_password', to: 'test#reset_password'
+  #  get '/test/reset_password', to: 'test#reset_password'
+ get '/test/v', to: 'test#version'
 end

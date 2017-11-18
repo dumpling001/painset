@@ -6,4 +6,9 @@ class TestController < ApplicationController
   #   render json: u
   #   return
   # end
+
+  def version
+    render plain: 'v2'
+    return
+  end
 end
