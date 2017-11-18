@@ -7,11 +7,11 @@ class TestController < ApplicationController
   #   return
   # end
 
-  def version
-    render json: {
-      user_name: ENV["SEND_CLOUD_USER_NAME"],
-      password: ENV["SEND_CLOUD_USER_KEY"]
-    }
+  # def version
+  #   render json: {
+  #     user_name: ENV["SEND_CLOUD_USER_NAME"],
+  #     password: ENV["SEND_CLOUD_USER_KEY"]
+  #   }
     return
   end
 end
