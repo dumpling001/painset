@@ -99,6 +99,10 @@ Rails.application.configure do
   # config.action_mailer.smtp_settings
 
   ActionMailer::Base.smtp_settings = {
+    # address: "smtp2525.sendcloud.net",
+    # port: 2525,
+    address: "smtp587.sendcloud.net",
+    port: 587,
     address: "smtpcloud.sohu.com",
     port: 25,
     domain: "painset.com",
