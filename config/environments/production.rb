@@ -114,7 +114,7 @@ Rails.application.configure do
 
     ActionMailer::Base.smtp_settings = {
     address: "smtpdm.aliyun.com",
-    port: 25,
+    port: 80,
     domain: "painset.com",
     openssl_verify_mode: 'none',
     authentication: "login",
