@@ -98,18 +98,29 @@ Rails.application.configure do
   # https://ihower.tw/rails/actionmailer-cn.html
   # config.action_mailer.smtp_settings
 
-  ActionMailer::Base.smtp_settings = {
-    # address: "smtp2525.sendcloud.net",
-    # port: 2525,
-    address: "smtp587.sendcloud.net",
-    port: 587,
-    # address: "smtpcloud.sohu.com",
-    # port: 25,
+  # ActionMailer::Base.smtp_settings = {
+  #   # address: "smtp2525.sendcloud.net",
+  #   # port: 2525,
+  #   # address: "smtp587.sendcloud.net",
+  #   # port: 587,
+  #   address: "smtpcloud.sohu.com",
+  #   port: 25,
+  #   domain: "painset.com",
+  #   authentication: "login",
+  #   enable_starttls_auto: true,
+  #   user_name: ENV["SENDCLOUD_USER_NAME_HJ"],
+  #   password: ENV["SENDCLOUD_USER_KEY_HJ"]
+  #   }
+
+    ActionMailer::Base.smtp_settings = {
+    address: "smtpdm.aliyun.com",
+    port: 25,
     domain: "painset.com",
+    openssl_verify_mode: 'none',
     authentication: "login",
-    enable_starttls_auto: true,
-    user_name: ENV["SEND_CLOUD_USER_NAME"],
-    password: ENV["SEND_CLOUD_USER_KEY"]
+    enable_stattls_auto: false,
+    user_name: ENV["ALICLOUD_USER_NAME_HJ"],
+    password: ENV["ALICLOUD_USER_KEY_HJ"],
     }
 
 end
