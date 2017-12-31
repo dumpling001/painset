@@ -16,3 +16,9 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.pagination {
+  .current { color: #aaa  }
+  .previous_page.disabled { background: white; color: #aaa }
+  .next_page.disabled { background: white; color: #aaa }
+}

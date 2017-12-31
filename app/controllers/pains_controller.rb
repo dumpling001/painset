@@ -3,7 +3,7 @@ class PainsController < ApplicationController
   before_action :find_pain_and_check_permission, only: [:edit, :update, :destroy]
 
   def index
-    @pains = Pain.all
+    @pains = Pain.all.paginate(page: params[:page], per_page: 10)
   end
 
   def new
