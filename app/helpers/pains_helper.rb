@@ -1,5 +1,5 @@
 module PainsHelper
-  def render_pain_description(pain)
-    simple_format(pain.pain_cause)
+  def render_pain_description(textvalue)
+    simple_format(textvalue)
   end
 end

@@ -16,7 +16,7 @@ class PainsController < ApplicationController
 
     if @pain.save
       current_user.mark!(@pain)
-      redirect_to pains_path
+      redirect_to pain_path(@pain)
     else
       render :new
     end
@@ -34,7 +34,7 @@ class PainsController < ApplicationController
     def update
 
       if @pain.update(pain_params)
-        redirect_to pains_path, notice: "修改成功啦！"
+        redirect_to pain_path(@pain), notice: "修改成功啦！"
       else
         render :edit
       end
