@@ -3,7 +3,7 @@ class PainsController < ApplicationController
   before_action :find_pain_and_check_permission, only: [:edit, :update, :destroy]
 
   def index
-    @pains = Pain.all.paginate(page: params[:page], per_page: 10)
+    @pains = Pain.recent.paginate(page: params[:page], per_page: 10)
   end
 
   def new
@@ -16,7 +16,7 @@ class PainsController < ApplicationController
 
     if @pain.save
       current_user.mark!(@pain)
-      redirect_to pain_path(@pain)
+      redirect_to pains_path
     else
       render :new
     end
@@ -34,7 +34,7 @@ class PainsController < ApplicationController
     def update
 
       if @pain.update(pain_params)
-        redirect_to pain_path(@pain), notice: "修改成功啦！"
+        redirect_to pains_path, notice: "修改成功啦！"
       else
         render :edit
       end
